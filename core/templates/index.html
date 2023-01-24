@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main container">
+      {% include 'includes/navbar.html' %}
+
+
+          <div class="news">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                      <a href="{% url 'core:news' firstnews.pk%}">
+                        <div class="news-card" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url({{ firstnews.banner_image.url }});">
+                            <div class="news-data">
+                                <span>Banking</span><span> • </span><span>{{ firstnews.created_at |date:"M d, Y" }}</span>
+                                <h1 class="news-title">{{ firstnews.title }}</h1>
+
+                            </div>
+                        </div>
+                      </a>
+                    </div>
+                    {% for new in news %}
+                    <div class="col-md-6 mb-4">
+                      <a href="{% url 'core:news' new.pk%}">
+                        <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url({{ new.banner_image.url }});">
+                            <div class="news-data">
+                                <span>Banking</span><span> • </span><span>{{ new.created_at |date:"M d, Y" }}</span>
+                                <h2 class="news-title">{{ new.title }}</h2>
+
+                            </div>
+                        </div>
+                      </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+          </div>
+          
+    </div>
+    {% endblock %}

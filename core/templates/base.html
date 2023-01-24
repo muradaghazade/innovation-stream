@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Titillium Web', sans-serif;">
+    <div id="myOverlay" class="overlay">
+        <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+        <div class="overlay-content">
+          <form action="">
+            <input type="text" placeholder="Search.." name="search" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
+            <button type="submit"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#1A1A1A" d="M22 21L16.16 15.1C17.4717 13.5158 18.1229 11.4872 17.9782 9.43552C17.8336 7.38383 16.9044 5.46667 15.3834 4.08211C13.8624 2.69756 11.8666 1.95199 9.81041 2.00023C7.75419 2.04848 5.79556 2.88682 4.3412 4.34118C2.88683 5.79554 2.04849 7.75418 2.00025 9.81039C1.95201 11.8666 2.69757 13.8624 4.08213 15.3834C5.46668 16.9043 7.38385 17.8336 9.43554 17.9782C11.4872 18.1229 13.5158 17.4717 15.1 16.16L21 22L22 21ZM3.50002 10C3.50002 8.71443 3.88124 7.45772 4.59547 6.3888C5.3097 5.31988 6.32486 4.48676 7.51258 3.99479C8.7003 3.50282 10.0072 3.3741 11.2681 3.6249C12.529 3.8757 13.6872 4.49477 14.5962 5.40381C15.5053 6.31285 16.1243 7.47104 16.3751 8.73192C16.6259 9.99279 16.4972 11.2997 16.0052 12.4874C15.5133 13.6752 14.6801 14.6903 13.6112 15.4046C12.5423 16.1188 11.2856 16.5 10 16.5C8.27693 16.4974 6.62516 15.8117 5.40675 14.5933C4.18833 13.3749 3.50267 11.7231 3.50002 10Z"></path>
+                </svg></button>
+          </form>
+        </div>
+      </div>
+
+      {% block content %}
+      {% endblock %}
+
+    <!-- Footer -->
+    {% include 'includes/footer.html' %}
+      <!-- Footer -->
+      
+      
+      
+      
+          <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            
+            <script>
+              function openSearch() {
+                document.getElementById("myOverlay").style.display = "block";
+              }
+              
+              function closeSearch() {
+                document.getElementById("myOverlay").style.display = "none";
+              }
+              </script>
+      </body>
+      </html>
