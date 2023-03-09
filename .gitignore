@@ -1,0 +1,14 @@
+.venv/
+venv
+env
+env/
+__pycache__/
+*/__pycache__/
+*.pyc
+*/*.pyc
+*.sql
+postgresdb/
+postgre_db/
+redisdb/
+/postgre_db/
+.DS_Store
