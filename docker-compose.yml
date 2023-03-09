@@ -34,18 +34,18 @@ services:
       - ./redisdb/:/var/lib/redis
  
   
-  celery:
-    restart: always
-    build:
-      context: .
-    command: celery -A app worker --beat --scheduler django --loglevel=info
-    volumes:
-      - ./app:/app
-    env_file:
-      - ./.env
-    depends_on:
-      - postgres
-      - redis
-      - app
+  # celery:
+  #   restart: always
+  #   build:
+  #     context: .
+  #   command: celery -A app worker --beat --scheduler django --loglevel=info
+  #   volumes:
+  #     - ./app:/app
+  #   env_file:
+  #     - ./.env
+  #   depends_on:
+  #     - postgres
+  #     - redis
+  #     - app
 volumes:
   pgdata:
