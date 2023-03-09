@@ -24,7 +24,7 @@ services:
             - .:/usr/src/app
         environment:
             - DEBUG=1
-            - DJANGO_ALLOWED_HOSTS=localhost http://134.122.95.250/ [::1]
+            - DJANGO_ALLOWED_HOSTS=localhost 134.122.95.250 [::1]
             - CELERY_BROKER=redis://redis:6379/0
             - CELERY_BACKEND=redis://redis:6379/0
         depends_on:

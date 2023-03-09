@@ -84,16 +84,16 @@ WSGI_APPLICATION = 'innovation.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# import time
-# time.sleep(2)
+import time
+time.sleep(1)
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('POSTGRES_DB', 'postgres'),
-            'USER': os.getenv('POSTGRES_USER', 'postgres'),
-            'PORT': os.getenv('POSTGRES_PORT', 5432),
-            'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
-            'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
+            'NAME':'postgres',
+            'USER': 'postgres',
+            'PORT': 5432,
+            'PASSWORD': 'postgres',
+            'HOST': '134.122.95.250',
         }
     }
 
