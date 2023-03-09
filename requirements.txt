@@ -8,8 +8,8 @@ click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.2.0
 datetime-truncate==1.1.1
-Django==4.1.5
-django-4-jet==1.0.9
+# Django==4.1.5
+# django-4-jet==1.0.9
 django-admin-charts==1.3.0
 django-bower==5.2.0
 django-celery-beat==2.4.0
