@@ -9,20 +9,20 @@
         
 
           <div class="header mt-5">
-            <span style="font-size: 14px; color: #5c5c5c; margin-right: 40px;">
-                <svg style="margin-top: -2px;" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <span style="font-size: 14px;  margin-right: 40px;">
+                <svg id="clock-icon" style="margin-top: -2px;" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18.5a8.5 8.5 0 118.5-8.5 8.51 8.51 0 01-8.5 8.5zm.42-14.21h-1.5V13h5.75v-1.5h-4.25z"></path>
                 </svg>
                 {{ news.created_at |date:"M d, Y" }}
             </span> 
-            <span style="font-size: 14px; color: #5c5c5c;">
-                <svg style="margin-top: -2px;" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <span style="font-size: 14px;">
+                <svg id="eye-icon" style="margin-top: -2px;" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 7.99663C16 9.29828 12.7605 13.5 8.00309 13.5C3.30737 13.5 0 9.29828 0 7.99663C0 6.68823 3.31354 2.5 8.00309 2.5C12.7543 2.5 16 6.68823 16 7.99663ZM1.19707 7.99663C1.19707 8.89362 4.22676 12.3602 8.00309 12.3602C11.7671 12.3602 14.7968 8.89362 14.7968 7.99663C14.7968 7.24801 11.7671 3.63305 8.00309 3.63305C4.22676 3.63305 1.19707 7.24801 1.19707 7.99663ZM8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z"></path>
                 </svg>
                 {{news.hit_count}}
             </span>
-            <h1 style="font-size: 55px; color: #000;">{{ news.title }}</h1>
-            <p style="color: #5c5c5c; font-size: 22px;">{{ news.short_title }}</p>
+            <h1 style="font-size: 55px; ">{{ news.title }}</h1>
+            <p style="font-size: 22px;">{{ news.short_title }}</p>
         </div>
         <div class="content mt-5">
             <div class="content-banner">
@@ -33,15 +33,15 @@
                 </div>
             </div>
 
-            <div class="content-text mt-5">
-                <p class="text">{{ news.description }}</p>
+            <div class="content-text mt-5 mb-5">
+                {{ news.remark | safe }}
 
 
             </div>
         </div>
          
     </div>
-    <div class="related" style="background-color: #f3f3f3; height: 600px; padding-top: 60px;">
+    <div class="related" style="padding-top: 60px; padding-bottom: 60px;">
       <div class="container">
         <h1>Related news</h1>
         <div class="mt-4">
@@ -51,8 +51,8 @@
               <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ news.banner_image.url }}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">{{ news.title }}</h5>
-                  <p class="card-text">{{ news.short_title }}</p>
+                  <h5 class="card-title" style="color: black;">{{ news.title|truncatewords:5 }}</h5>
+                  <p class="card-text" style="color: black;">{{ news.short_title|truncatewords:9 }}</p>
                   <a href="{% url 'core:news' news.pk%}" class="btn" style="background-color: #390c7e; color: white;">Read more</a>
                 </div>
               </div>

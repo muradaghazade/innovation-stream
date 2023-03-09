@@ -1,0 +1,51 @@
+version: '3'
+ 
+services:
+  postgres:
+    container_name: postgres_data
+    image: postgres:9.6
+    ports: 
+      - 5432:5432
+    volumes:
+      - ../postgre_db/:/var/lib/postgresql/data
+    env_file: ./.env
+
+
+  app:
+    build: .
+    restart: "always"
+    ports:
+      - "80:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code/
+      - ./static/:/code/static/
+      - ./media/:/code/media/
+    env_file: ./.env
+    depends_on:
+      - "postgres"
+
+  redis:
+    image: redis:3
+    restart: 'on-failure'
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redisdb/:/var/lib/redis
+ 
+  
+  celery:
+    restart: always
+    build:
+      context: .
+    command: celery -A app worker --beat --scheduler django --loglevel=info
+    volumes:
+      - ./app:/app
+    env_file:
+      - ./.env
+    depends_on:
+      - postgres
+      - redis
+      - app
+volumes:
+  pgdata:
