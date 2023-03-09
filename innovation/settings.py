@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'innovation.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 import time
-time.sleep(2)
+time.sleep(5)
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
