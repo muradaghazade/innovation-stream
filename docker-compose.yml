@@ -1,51 +1,46 @@
-version: '3'
- 
+version: "3.8"
+   
 services:
-  postgres:
-        container_name: postgres_data
-        image: postgres:9.6
-        ports: 
-            - 5432:5432
-        volumes: 
-            - ./postgre_db:/var/lib/postgresql/
-        env_file: ./.env
-
-
-  app:
-    build: .
-    restart: "always"
-    ports:
-      - "80:8000"
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code/
-      - ./static/:/code/static/
-      - ./media/:/code/media/
-    env_file: ./.env
-    depends_on:
-      - "postgres"
-
-  redis:
-    image: redis:3
-    restart: 'on-failure'
-    ports:
-      - 6379:6379
-    volumes:
-      - ./redisdb/:/var/lib/redis
- 
-  
-  # celery:
-  #   restart: always
-  #   build:
-  #     context: .
-  #   command: celery -A app worker --beat --scheduler django --loglevel=info
-  #   volumes:
-  #     - ./app:/app
-  #   env_file:
-  #     - ./.env
-  #   depends_on:
-  #     - postgres
-  #     - redis
-  #     - app
+    django:
+        build: .
+        container_name: django
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/usr/src/app/
+        ports:
+            - "8000:8000"
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+            - CELERY_BROKER=redis://redis:6379/0
+            - CELERY_BACKEND=redis://redis:6379/0
+        depends_on:
+            - pgdb
+            - redis
+    celery:
+        build: .
+        command: celery -A core worker -l INFO
+        volumes:
+            - .:/usr/src/app
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+            - CELERY_BROKER=redis://redis:6379/0
+            - CELERY_BACKEND=redis://redis:6379/0
+        depends_on:
+            - django
+            - redis
+    pgdb:
+        image: postgres
+        container_name: pgdb
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        volumes:
+            - pgdata:/var/lib/postgresql/data/
+    redis:
+        image: "redis:alpine"
+        
 volumes:
-  pgdata:
+    pgdata:
