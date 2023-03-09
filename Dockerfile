@@ -7,4 +7,4 @@ COPY requirements.txt /code/requirements.txt
 WORKDIR /code
 RUN pip install -r requirements.txt
 ADD . .
-CMD ["celery", "-A", "innovation", "worker", "--beat", "--scheduler", "django", "--loglevel=info"]
+# CMD ["celery", "-A", "innovation", "worker", "--beat", "--scheduler", "django", "--loglevel=info"]
