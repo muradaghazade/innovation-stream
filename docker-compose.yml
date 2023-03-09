@@ -31,14 +31,13 @@ services:
             - django
             - redis
     pgdb:
-        image: postgres
+        image: postgres:9.6
         container_name: pgdb
         environment:
-            - POSTGRES_DB=postgres
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres
+           - 5432:5432
         volumes:
             - pgdata:/var/lib/postgresql/data/
+        env_file: ./.env
     redis:
         image: "redis:alpine"
         
