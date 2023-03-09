@@ -4,14 +4,14 @@ services:
     django:
         build: .
         container_name: django
-        command: python manage.py runserver 0.0.0.0:8000
+        command: python manage.py runserver 0.0.0.0:80
         volumes:
             - .:/usr/src/app/
         ports:
-            - "8000:8000"
+            - "8000:80"
         environment:
             - DEBUG=1
-            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+            - DJANGO_ALLOWED_HOSTS=localhost 134.122.95.250 [::1]
             - CELERY_BROKER=redis://redis:6379/0
             - CELERY_BACKEND=redis://redis:6379/0
         depends_on:
