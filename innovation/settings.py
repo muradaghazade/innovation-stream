@@ -85,20 +85,20 @@ WSGI_APPLICATION = 'innovation.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 import time
-time.sleep(5)
+time.sleep(2)
 DATABASES = {
+        # 'default': {
+        #     'ENGINE': 'django.db.backends.postgresql',
+        #     'NAME': os.getenv('POSTGRES_DB', 'taskilled'),
+        #     'USER': os.getenv('POSTGRES_USER', 'taskilled'),
+        #     'PORT': os.getenv('POSTGRES_PORT', 5432),
+        #     'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345'),
+        #     'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
+        # }
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('POSTGRES_DB', 'taskilled'),
-            'USER': os.getenv('POSTGRES_USER', 'taskilled'),
-            'PORT': os.getenv('POSTGRES_PORT', 5432),
-            'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345'),
-            'HOST': os.getenv('POSTGRES_HOST', '134.122.95.250'),
-        }
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+    }
     }
 
 
