@@ -86,14 +86,16 @@ WSGI_APPLICATION = 'innovation.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ.get('DB_HOST'),
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('POSTGRES_DB', 'taskilled'),
+            'USER': os.getenv('POSTGRES_USER', 'taskilled'),
+            'PORT': os.getenv('POSTGRES_PORT', 5432),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345'),
+            'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
+        }
     }
-}
+
 
 # DATABASES = {
 #     'default': {
