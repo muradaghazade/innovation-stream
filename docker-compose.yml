@@ -28,6 +28,7 @@ services:
         depends_on:
             - pgdb
             - redis
+        env_file: ./.env
     celery:
         build: .
         command: celery -A innovation worker -l INFO
