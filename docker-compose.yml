@@ -1,6 +1,17 @@
 version: "3.8"
    
 services:
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        restart: "always"
+        ports:
+            - "80:80"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./nginx/vhost/:/etc/nginx/vhost.d:ro
+            - ./nginx/conf.d/client_max_body_size.conf:/etc/nginx/conf.d/client_max_body_size.conf:ro
+            - ./static/:/innovation/static 
+            - ./media/:/innovation/media 
     django:
         build: .
         container_name: django
@@ -34,7 +45,9 @@ services:
         image: postgres:9.6
         container_name: pgdb
         environment:
-           - 5432:5432
+            POSTGRES_DB: 'ffa'
+            POSTGRES_USER: 'user_ffa'
+            POSTGRES_PASSWORD: '12345'
         volumes:
             - pgdata:/var/lib/postgresql/data/
         env_file: ./.env
@@ -43,3 +56,8 @@ services:
         
 volumes:
     pgdata:
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

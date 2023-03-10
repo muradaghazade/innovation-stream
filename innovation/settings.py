@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3=@_h!x30xlz0)r9kbxahgccwbz%mo4x6--ct5&%sj+okg$0j^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False if os.environ.get('DEBUG') else True
+PROD = not DEBUG
 
 ALLOWED_HOSTS = ['*']
 
@@ -84,21 +85,23 @@ WSGI_APPLICATION = 'innovation.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-import time
-time.sleep(2)
-DATABASES = {
-        # 'default': {
-        #     'ENGINE': 'django.db.backends.postgresql',
-        #     'NAME': os.getenv('POSTGRES_DB', 'taskilled'),
-        #     'USER': os.getenv('POSTGRES_USER', 'taskilled'),
-        #     'PORT': os.getenv('POSTGRES_PORT', 5432),
-        #     'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345'),
-        #     'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
-        # }
+if PROD:
+    DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('POSTGRES_DB'),
+            'USER': os.environ.get('POSTGRES_USER'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT')
+        }
     }
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+         }
     }
 
 
@@ -151,8 +154,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 
