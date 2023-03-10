@@ -52,8 +52,8 @@ services:
     redis:
         image: "redis:alpine"
         
-volumes:
-    pgdata:
+# volumes:
+#     pgdata:
 
 networks:
   default:
