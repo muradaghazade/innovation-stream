@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'admin_tools_stats',
     'django_nvd3',
-    'jet',
+    # 'jet',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
