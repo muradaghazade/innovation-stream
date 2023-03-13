@@ -152,26 +152,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CKEDITOR_BASEPATH = os.path.join(STATIC_ROOT, "ckeditor/")
-CKEDITOR_UPLOAD_PATH = "uploads/"
+# CKEDITOR_UPLOAD_PATH = "uploads/"
 # CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 # JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
