@@ -6,11 +6,11 @@ from core.models import News, Subscriber
 
 @shared_task
 def reset_upvotes():
-    news1 = News.objects.order_by('id')[0]
-    news2 = News.objects.order_by('id')[1]
-    news3 = News.objects.order_by('id')[2]
-    news4 = News.objects.order_by('id')[3]
-    news5 = News.objects.order_by('id')[4]
+    news1 = News.objects.order_by('-id')[0]
+    news2 = News.objects.order_by('-id')[1]
+    news3 = News.objects.order_by('-id')[2]
+    news4 = News.objects.order_by('-id')[3]
+    news5 = News.objects.order_by('-id')[4]
     subscribers = Subscriber.objects.all()
 
     for subscriber in subscribers:
