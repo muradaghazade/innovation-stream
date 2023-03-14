@@ -26,7 +26,7 @@ def reset_upvotes():
         text_content = 'This is an important message.'
         html_content = f''' <div class="col-md-6 mb-4"  style="margin-bottom: 30px;" style="margin-bottom: 30px;">
                         <a href="/news/{news1.id}">
-                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url({news1.banner_image.url}); height: 430px;
+                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url(https://pashainnovation.com/{news1.banner_image.url}); height: 430px;
         background-repeat: no-repeat;
         background-position: center;
         width: 100%;
@@ -48,7 +48,7 @@ def reset_upvotes():
                         
         <div class="col-md-6 mb-4"  style="margin-bottom: 30px;">
                         <a href="/news/{news2.id}">
-                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url({news2.banner_image.url}); height: 430px;
+                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url(https://pashainnovation.com/{news2.banner_image.url}); height: 430px;
         background-repeat: no-repeat;
         background-position: center;
         width: 100%;
@@ -71,7 +71,7 @@ def reset_upvotes():
                         
     <div class="col-md-6 mb-4"  style="margin-bottom: 30px;">
                         <a href="/news/{news3.id}">
-                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url({news3.banner_image.url}); height: 430px;
+                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url(https://pashainnovation.com/{news3.banner_image.url}); height: 430px;
         background-repeat: no-repeat;
         background-position: center;
         width: 100%;
@@ -95,7 +95,7 @@ def reset_upvotes():
 
     <div class="col-md-6 mb-4"  style="margin-bottom: 30px;">
                         <a href="/news/{news4.id}">
-                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url({news4.banner_image.url}); height: 430px;
+                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url(https://pashainnovation.com/{news4.banner_image.url}); height: 430px;
         background-repeat: no-repeat;
         background-position: center;
         width: 100%;
@@ -119,7 +119,7 @@ def reset_upvotes():
 
     <div class="col-md-6 mb-4"  style="margin-bottom: 30px;">
                         <a href="/news/{news5.id}">
-                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url({news5.banner_image.url}); height: 430px;
+                            <div class="news-card-small" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.680), rgba(0, 0, 0, 0.076) ), url(https://pashainnovation.com/{news5.banner_image.url}); height: 430px;
         background-repeat: no-repeat;
         background-position: center;
         width: 100%;
