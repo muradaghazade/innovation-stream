@@ -12,3 +12,5 @@ postgre_db/
 redisdb/
 /postgre_db/
 .DS_Store
+media
+/media
