@@ -12,6 +12,6 @@ admin.site.unregister([Group, User])
 
 class NewsAdmin(admin.ModelAdmin):
     class Media:
-        js = ('ckeditor/ckeditor/ckeditor.js','ckeditor/ckeditor/ckeditor-init.js',)
+        js = ('/ckeditor/ckeditor-init.js','ckeditor/ckeditor/ckeditor.js',)
 
 admin.site.register(News, NewsAdmin)
