@@ -34,7 +34,7 @@ services:
         env_file: ./.env
     celery:
         build: .
-        command: celery -A innovation worker -l INFO
+        command: celery -A innovation worker --beat --scheduler django --loglevel=info
         volumes:
             - .:/usr/src/app
         environment:
