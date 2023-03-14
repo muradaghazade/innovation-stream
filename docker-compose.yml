@@ -45,6 +45,7 @@ services:
         depends_on:
             - django
             - redis
+        env_file: ./.env
     pgdb:
         container_name: pgdb
         image: postgres
