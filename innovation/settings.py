@@ -109,6 +109,7 @@ else:
         }
     }
 
+print(DATABASES)
 
 # DATABASES = {
 #     'default': {
