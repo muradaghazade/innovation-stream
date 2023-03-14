@@ -6,7 +6,7 @@ from core.models import News, Subscriber
 
 @shared_task
 def reset_upvotes():
-    print("Heyyy")
+    print("Heyyy Guys")
     send_mail(
         'Subject here',
         'Here is the message.',
