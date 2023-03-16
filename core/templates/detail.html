@@ -38,6 +38,32 @@
 
 
             </div>
+
+            <div class="content-text mt-5 mb-5">
+            {% for content in news.contents.all %}
+              {% if content.paragraph %}
+                <p>{{content.paragraph}}</p>
+              {% endif %}
+              {% if content.image %}
+              <div style="background-image: url({{content.image.url}}); width: 100%; height: 630px; border-radius: 10px; background-repeat: no-repeat;
+              background-position: center; margin: 0 auto; background-size: cover;">
+
+              </div>
+              {% endif %}
+              {% if content.video_link %}
+              <div style="text-align: center;">
+                {{content.video_link|safe}}
+              </div>
+              {% endif %}
+
+              {% if content.url_name and content.url %}
+              <div style="text-align: center;">
+              <a href="{{content.url}}">{{content.url_name}}</a>
+              </div>
+              
+              {% endif %}
+            {% endfor %}
+          </div>
         </div>
          
     </div>

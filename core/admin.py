@@ -10,7 +10,12 @@ admin.site.register(Subscriber)
 
 admin.site.unregister([Group, User])
 
+class ContentInline(admin.TabularInline):
+    model = Content
+
 class NewsAdmin(admin.ModelAdmin):
+    inlines = [ContentInline]
+    search_fields = ['title', ]
     class Media:
         js = ('ckeditor/ckeditor-init.js','ckeditor/ckeditor/ckeditor.js','ckeditor/ckeditor/styles.js','ckeditor/ckeditor/config.js',)
         css = css = {
