@@ -191,7 +191,7 @@ EMAIL_USE_TLS = True
 #add the port number of the email server
 EMAIL_PORT = 587
 #add your gamil here
-EMAIL_HOST_USER = 'xomurad41@gmail.com'
+EMAIL_HOST_USER = 'phinnovationstream@gmail.com'
 #add your password here
-EMAIL_HOST_PASSWORD = 'qjqppjoyrdfbqmuq'
-DEFAULT_FROM_EMAIL='Celery <xomurad41@gmail.com>'
+EMAIL_HOST_PASSWORD = 'yziwvnwlsawxqrtf'
+DEFAULT_FROM_EMAIL='Celery <phinnovationstream@gmail.com>'

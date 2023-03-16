@@ -23,7 +23,7 @@ def send_emails():
     subscribers = Subscriber.objects.all()
 
     for subscriber in subscribers:
-        subject, from_email, to = 'hello', 'xomurad41@gmail.com', f'{subscriber.email}'
+        subject, from_email, to = 'Innovation News', 'xomurad41@gmail.com', f'{subscriber.email}'
         text_content = 'This is an important message.'
         html_content = f''' <div class="col-md-6 mb-4"  style="margin-bottom: 30px;" style="margin-bottom: 30px;">
                         <a href="/news/{news1.id}">
