@@ -14,7 +14,7 @@ class NewsAdmin(admin.ModelAdmin):
     class Media:
         js = ('ckeditor/ckeditor-init.js','ckeditor/ckeditor/ckeditor.js','ckeditor/ckeditor/styles.js','ckeditor/ckeditor/config.js',)
         css = css = {
-             'all': ('ckeditor/ckeditor/plugins/scayt/dialogs/dialog.css', 'ckeditor/ckeditor/skins/moono-lisa/editor.css', 'ckeditor/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css',)
+             'all': ('ckeditor/ckeditor/plugins/scayt/dialogs/dialog.css', 'ckeditor/ckeditor/skins/moono-lisa/editor.css', 'ckeditor/ckeditor/plugins/scayt/skins/moono-lisa/scayt.css', 'ckeditor/ckeditor/contents.css?t=M6K9', 'ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css?t=M6K9','ckeditor/ckeditor/plugins/tableselection/styles/tableselection.css?t=M6K9', 'ckeditor/ckeditor/skins/moono-lisa/editor.css?t=M6K9')
         }
         
         
