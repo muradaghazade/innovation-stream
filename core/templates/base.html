@@ -12,11 +12,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap" rel="stylesheet">
 <style>
   p {
     font-family: 'Montserrat', sans-serif;
   }
+
+  .remark {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-align: justify;
+  }
+  
 </style>
 </head>
 <body style="font-family: 'Titillium Web', sans-serif;">
@@ -84,6 +91,13 @@
     else {
       localStorage.removeItem('theme')
       localStorage.setItem('theme','dark')
+    }
+
+    for (let elem of document.querySelectorAll('.news-card-small')) {
+      elem.style.border = '1px solid white'
+    }
+    for (let elem of document.querySelectorAll('.news-card')) {
+      elem.style.border = '1px solid white'
     }
     
       var element = document.body;
@@ -156,6 +170,12 @@ var element = document.body;
          console.log(2);
      }
      document.getElementById('subscribe').classList.toggle("dark-sub");
+     for (let elem of document.querySelectorAll('.news-card-small')) {
+      elem.style.border = '1px solid white'
+    }
+    for (let elem of document.querySelectorAll('.news-card')) {
+      elem.style.border = '1px solid white'
+    }
      var img = document.getElementById('dark-mode-img').src;
       if (img.indexOf('dark-mode.svg')!=-1) {
           document.getElementById('dark-mode-img').src  = '/static/img/ligt.svg';

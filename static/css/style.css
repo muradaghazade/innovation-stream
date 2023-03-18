@@ -176,6 +176,10 @@
     .news-card-small {
       padding: 10px !important;
     }
+
+    .video-div iframe {
+      width: 300px;
+    }
  
  }
 
@@ -201,6 +205,10 @@
     padding: 10px !important;
   }
 
+  .video-div iframe {
+    width: 300px;
+  }
+
 }
  @media (min-width: 768px) and (max-width: 841px) {
   .news {
@@ -222,6 +230,10 @@
   }
   .news-card-small {
     padding: 10px !important;
+  }
+
+  .video-div iframe {
+    width: 300px;
   }
  
  }
