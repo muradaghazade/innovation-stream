@@ -46,11 +46,11 @@
             <div class="content-text mt-5 mb-5">
             {% for content in news.contents.all %}
               {% if content.paragraph %}
-                <p style="text-align: justify;">{{content.paragraph}}</p>
+                <p style="text-align: justify; margin-top: 50px;">{{content.paragraph}}</p>
               {% endif %}
               {% if content.image %}
               <div style="background-image: url({{content.image.url}}); width: 100%; height: 630px; border-radius: 10px; background-repeat: no-repeat;
-              background-position: center; margin: 0 auto; background-size: cover;">
+              background-position: center; margin: 0 auto; background-size: cover; margin-top: 50px;">
 
               </div>
               {% endif %}
@@ -61,7 +61,7 @@
               {% endif %}
 
               {% if content.url_name and content.url %}
-              <div style="text-align: center;">
+              <div style="text-align: center; margin-top: 50px;">
               <a href="{{content.url}}">{{content.url_name}}</a>
               </div>
               
