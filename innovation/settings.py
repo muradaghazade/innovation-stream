@@ -30,6 +30,8 @@ PROD = not DEBUG
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['https://pashainnovation.com/']
+
 
 # Application definition
 
